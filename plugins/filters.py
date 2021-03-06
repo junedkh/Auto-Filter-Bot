@@ -20,7 +20,7 @@ from pyrogram.types import (
 
 from bot import Bot
 from script import script
-from config import MAINCHANNEL_ID
+from config_main import MAINCHANNEL_ID
 
 BUTTONS = {}
  

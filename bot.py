@@ -8,7 +8,7 @@ from pyrogram import (
     __version__
 )
 
-from config import (
+from config_main import (
     API_HASH,
     APP_ID,
     LOGGER,
