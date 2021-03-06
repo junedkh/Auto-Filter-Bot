@@ -8,8 +8,6 @@ from dotenv import load_dotenv
 
 load_dotenv('config.env')
 
-LOGGER = logging.getLogger(__name__)
-
 def getConfig(name: str):
     return os.environ[name]
 
@@ -22,7 +20,8 @@ except KeyError as e:
     LOGGER.error("One or more env variables missing! Exiting now")
     exit(1)
 
-LOGGER.info("Generating USER_SESSION_STRING")
+
+logging.getLogger("Generating USER_SESSION_STRING").setLevel(logging.INFO)
 with Client(':memory:', api_id=int(APP_ID), api_hash=API_HASH, bot_token=TG_BOT_TOKEN) as app:
     TG_USER_SESSION = app.export_session_string()
 
