@@ -2,29 +2,33 @@
 import os
 import logging
 from logging.handlers import RotatingFileHandler
+from pyrogram import Client
+from dotenv import load_dotenv
 
 
-# Get a bot token from botfather
-TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "")
+load_dotenv('config.env')
 
-# Get from my.telegram.org (or @UseTGXBot)
-APP_ID = int(os.environ.get("APP_ID", ""))
+LOGGER = logging.getLogger(__name__)
 
-# Get from my.telegram.org (or @UseTGXBot)
-API_HASH = os.environ.get("API_HASH", "")
+def getConfig(name: str):
+    return os.environ[name]
 
-# Generate a user session string 
-TG_USER_SESSION = os.environ.get("TG_USER_SESSION", "")
+try:
+    TG_BOT_TOKEN = getConfig('TG_BOT_TOKEN')
+    APP_ID = int(getConfig('APP_ID'))
+    API_HASH = getConfig('API_HASH')
+    MAINCHANNEL_ID = getConfig('MAINCHANNEL_ID')
+except KeyError as e:
+    LOGGER.error("One or more env variables missing! Exiting now")
+    exit(1)
 
-# ID of Channel from which the bot shoul search files
-MAINCHANNEL_ID = os.environ.get("MAINCHANNEL_ID", "")
+LOGGER.info("Generating USER_SESSION_STRING")
+with Client(':memory:', api_id=int(APP_ID), api_hash=API_HASH, bot_token=TG_BOT_TOKEN) as app:
+    TG_USER_SESSION = app.export_session_string()
 
-
-
-
-TG_BOT_SESSION = os.environ.get("TG_BOT_SESSION", "bot")
-TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "4"))
-LOG_FILE_NAME = "filterbot.txt"
+TG_BOT_SESSION = getConfig('TG_BOT_SESSION')
+TG_BOT_WORKERS = int(getConfig('TG_BOT_WORKERS'))
+LOG_FILE_NAME = getConfig('LOG_FILE_NAME')
 
 logging.basicConfig(
     level=logging.INFO,

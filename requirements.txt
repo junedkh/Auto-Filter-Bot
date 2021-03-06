@@ -1,4 +1,3 @@
 Pyrogram
 TgCrypto
-
-
+python-dotenv>=0.10

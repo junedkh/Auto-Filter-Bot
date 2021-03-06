@@ -1,0 +1,5 @@
+venv/*
+.vscode
+filterbot.txt
+config.env
+bot.session
