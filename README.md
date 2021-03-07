@@ -20,7 +20,6 @@
 
 [![TroJanz](https://img.shields.io/badge/KH_TEAM-Channel-orange?style=for-the-badge&logo=telegram)](https://telegram.dog/khgpsupport)
 
-ㅤㅤㅤㅤㅤㅤㅤ  
 [![MIT license](https://img.shields.io/badge/License-MIT-blue?style=flat)](https://github.com/junedkh/Auto-Filter-Bot/blob/main/COPYING) [![Open Source](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/junedkh/Auto-Filter-Bot)
 
 #### You can call this as an Auto Filter Bot if you like :D

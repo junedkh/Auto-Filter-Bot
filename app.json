@@ -28,6 +28,11 @@
             "value": "",
             "required": true
         },
+        "TG_USER_SESSION": {
+            "description": "A pyrogram user session string. Generate from https://repl.it/@SpEcHiDe/GenerateStringSession",
+            "value": "",
+            "required": true
+        },
         "MAINCHANNEL_ID": {
             "description": "ID of Channel from which the bot should search files",
             "value": "",
