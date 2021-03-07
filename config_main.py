@@ -16,14 +16,10 @@ try:
     APP_ID = int(getConfig('APP_ID'))
     API_HASH = getConfig('API_HASH')
     MAINCHANNEL_ID = getConfig('MAINCHANNEL_ID')
+    TG_USER_SESSION = getConfig('TG_USER_SESSION')
 except KeyError as e:
     LOGGER.error("One or more env variables missing! Exiting now")
     exit(1)
-
-
-logging.getLogger("Generating USER_SESSION_STRING").setLevel(logging.INFO)
-with Client(':memory:', api_id=int(APP_ID), api_hash=API_HASH, bot_token=TG_BOT_TOKEN) as app:
-    TG_USER_SESSION = app.export_session_string()
 
 TG_BOT_SESSION = getConfig('TG_BOT_SESSION')
 TG_BOT_WORKERS = int(getConfig('TG_BOT_WORKERS'))
