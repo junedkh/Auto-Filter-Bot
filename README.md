@@ -69,7 +69,7 @@ python3 main.py
 
 - MAINCHANNEL_ID - Obtain ID of Channel by forwarding a message from your channel to [ChannelIDHEXbot](https://telegram.dog/channelidhexbot)
 
-- TG_USER_SESSION - A pyrogram will gernrate automatically user session string.
+- TG_USER_SESSION  - A pyrogram user session string. Generate by [clicking here](https://repl.it/@SpEcHiDe/GenerateStringSession)
 
 ## Credits
 
