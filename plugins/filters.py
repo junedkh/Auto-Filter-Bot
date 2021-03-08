@@ -20,7 +20,7 @@ from pyrogram.types import (
 
 from bot import Bot
 from script import script
-from config_main import MAINCHANNEL_ID
+from app import MAINCHANNEL_ID
 
 BUTTONS = {}
  
@@ -58,6 +58,7 @@ async def filter(client: Bot, message: Message):
                 f"<b> Here is the result for {message.text}</b>",
                 reply_markup=InlineKeyboardMarkup(buttons)
             )
+            return
 
         data = BUTTONS[keyword]
         buttons = data['buttons'][0].copy()
